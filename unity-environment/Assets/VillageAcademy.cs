@@ -55,7 +55,7 @@ public class VillageAcademy : Academy {
     public override void AcademyStep()
     {
         
-        foodProd = -VillagerAgent.AgentCount * 0.15f;
+        foodProd = -VillagerAgent.AgentCount * 0.2f;
 
         foreach (Factory f in farms) {
             foodProd += f.GetProd();
@@ -70,7 +70,7 @@ public class VillageAcademy : Academy {
             coalProd += f.GetProd();
         }
 
-        coalProd -= houses.Length * 0.15f;
+        coalProd -= houses.Length * 0.2f;
 
         coal += coalProd;
         coal = Mathf.Clamp(coal, -100, 500);
