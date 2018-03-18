@@ -9,6 +9,8 @@ public class VillagerAgent : Agent {
 	static List<VillagerAgent> agents = new List<VillagerAgent>();
 	public static int AgentCount { get { return agents.Count; }}
 	public static float AvgHappiness { get { 
+		if (agents.Count == 0) return 0;
+
 		float avgHap = 0;
 
 		foreach (VillagerAgent a in agents) {

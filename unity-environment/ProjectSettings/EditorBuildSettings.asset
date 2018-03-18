@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Village02.unity
+    guid: 9351f92befdf34806aa33957ab9ca4d0
   - enabled: 0
     path: Assets/ML-Agents/Examples/3DBall/Scene.unity
     guid: a83e830ec5bcd4b1db836428921d59b0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Village01.unity
     guid: 6248d83d64f2e43f98a5756b6710cb30

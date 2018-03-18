@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Text;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,22 +7,30 @@ using UnityEngine.UI;
 public class VillageAcademy : Academy {
 
     [SerializeField]
-    GameObject[] houses;
+    List<House> houses = new List<House>();
+    public void AddHouse(House house) { houses.Add(house); }
+    public void RemoveHouse(House house) { houses.Remove(house); }
 
     [SerializeField]
-    Factory[] farms;
+    List<Factory> farms;
+    public void AddFarm(Factory farm) { farms.Add(farm); }
+    public void RemoveFarm(Factory farm) { farms.Remove(farm); }
     float foodProd;
     [SerializeField]
     float food = 50;
 
     [SerializeField]
-    Factory[] coalPlants;
+    List<Factory> coalPlants = new List<Factory>();
+    public void AddCoalPlant(Factory coalPlant) { coalPlants.Add(coalPlant); }
+    public void RemoveCoalPlant(Factory coalPlant) { coalPlants.Remove(coalPlant); }
     float coalProd;
     [SerializeField]
     float coal = 50;
 
     [SerializeField]
-    Bar[] bars;
+    List<Bar> bars = new List<Bar>();
+    public void AddBar(Bar bar) { bars.Add(bar); }
+    public void RemoveBar(Bar bar) { bars.Remove(bar); }
     [SerializeField]
     float happiness = 50;
     [SerializeField]
@@ -39,6 +48,8 @@ public class VillageAcademy : Academy {
     Image happinessUI;
     [SerializeField]
     Image reproducitonUI;
+    [SerializeField]
+    Text population;
     [SerializeField]
     Slider timeUI;
 
@@ -70,38 +81,38 @@ public class VillageAcademy : Academy {
             coalProd += f.GetProd();
         }
 
-        coalProd -= houses.Length * 0.2f;
+        coalProd -= houses.Count * 0.2f;
 
         coal += coalProd;
         coal = Mathf.Clamp(coal, -100, 500);
 
         happiness = VillagerAgent.AvgHappiness;
 
-        foreach (GameObject house in houses) {
-            if (house.GetComponent<House>().IsFull)
+        foreach (House house in houses) {
+            if (house.IsFull)
                 continue;
             
             babyProgress += happiness > 50 ? (happiness-40) /10 : 0;
 
-            if (babyProgress >= 100f) {
+            if (babyProgress >= 100f || (VillagerAgent.AgentCount == 0 && houses.Count > 0 && farms.Count > 0 && bars.Count > 0 && coalPlants.Count > 0)) {
                 babyProgress = 0f;
 
                 GameObject villager = Instantiate(villagerPrefab);
                 VillagerAgent va = villager.GetComponent<VillagerAgent>();
 
-                house.GetComponent<House>().AddOwner(va);
+                house.AddOwner(va);
 
                 if (coal != food && coal < food) {
-                    va.Work = coalPlants[Random.Range(0, coalPlants.Length)].gameObject;
+                    va.Work = coalPlants[Random.Range(0, coalPlants.Count)].gameObject;
                 } else if (coal != food) {
-                    va.Work = farms[Random.Range(0, farms.Length)].gameObject;
+                    va.Work = farms[Random.Range(0, farms.Count)].gameObject;
                 } else if (Random.Range(0, 2) == 0) {
-                    va.Work = coalPlants[Random.Range(0, coalPlants.Length)].gameObject;                    
+                    va.Work = coalPlants[Random.Range(0, coalPlants.Count)].gameObject;                    
                 } else {
-                    va.Work = farms[Random.Range(0, farms.Length)].gameObject;                    
+                    va.Work = farms[Random.Range(0, farms.Count)].gameObject;                    
                 }
 
-                va.Bar = bars[Random.Range(0, bars.Length)].gameObject;
+                va.Bar = bars[Random.Range(0, bars.Count)].gameObject;
 
                 va.GiveBrain(GetComponentInChildren<Brain>());
             }
@@ -120,6 +131,15 @@ public class VillageAcademy : Academy {
         happinessUI.color = new Color(1, happiness / 100, 0);        
         
         reproducitonUI.fillAmount = Mathf.Lerp(reproducitonUI.fillAmount, babyProgress / 100f, Time.deltaTime);
+
+        if (houses.Count > 0) {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("population: ");
+            sb.Append(VillagerAgent.AgentCount.ToString());
+            sb.Append("/");
+            sb.Append(houses.Count * houses[0].capacity);
+            population.text = sb.ToString();
+        }
 
         Time.timeScale = timeUI.value;
     }
