@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum AgentStates {Strength, Happiness, CurAction}
+public enum AgentActions {Wander, Rest, Work, Fun}
+
 [RequireComponent(typeof(NavMeshAgent))]
 public class VillagerAgent : Agent {
 
@@ -23,7 +26,6 @@ public class VillagerAgent : Agent {
 	NavMeshAgent nma;
 
 	[Header("Specific to Villagers")]
-	public GameObject Villager;
 	public GameObject Home;
 	public GameObject Work;
 	public GameObject Bar;
@@ -33,90 +35,113 @@ public class VillagerAgent : Agent {
 	[Range(0, 100f)]
 	public float happiness = 50f;
 
-	public enum AgentState {AtHome, AtWork, InTransit, AtBar}
-	public AgentState curState;
-	public AgentState nextState;
+	[SerializeField]
+	AgentActions curAction;
 
 	public override void InitializeAgent() {
-		nma = Villager.GetComponent<NavMeshAgent>();
+		nma = GetComponent<NavMeshAgent>();
 
 		agents.Add(this);
 
 		if (Home != null)
 			Home.GetComponent<House>().AddOwner(this);
 
-		maxStep = Random.Range(800, 1000);
+		curAction = AgentActions.Wander;
 	}
 
     public override List<float> CollectState()
     {
         List<float> state = new List<float>();
 
-        state.Add((float) curState);
-        state.Add((float) nextState);
         state.Add((float) strength);
         state.Add((float) happiness);
+        state.Add((float) curAction);
 
         return state;
     }
 
     // to be implemented by the developer
-    public override void AgentStep(float[] act)
-    {
-		if (act[0] == 1f) {
-			nextState = (AgentState) act[1];
-		}
-
-		if (curState != nextState) {
-			switch (nextState) {
-				case AgentState.AtHome:
-					curState = AgentState.InTransit;
-					nma.destination = Home.transform.position;
-					break;
-				case AgentState.AtWork:
-					curState = AgentState.InTransit;
-					nma.destination = Work.transform.position;
-					break;
-				case AgentState.AtBar:
-					curState = AgentState.AtBar;
-					nma.destination = Bar.transform.position;
-					break;
-				case AgentState.InTransit:
-					break;
-			}
-		}
-		
-		switch (curState) {
-			case AgentState.AtHome:
-				strength++;
+    public override void AgentStep(float[] act) {
+		switch (curAction) {
+			case AgentActions.Rest:
+				if ((transform.position - nma.pathEndPosition).sqrMagnitude < 1f) {
+					strength++;
+				}
 				break;
-			case AgentState.AtWork:
+			case AgentActions.Work:
+				if ((transform.position - nma.pathEndPosition).sqrMagnitude < 1f) {
+					strength--;
+					happiness--;
+				}
+				break;
+			case AgentActions.Fun:
+				if ((transform.position - nma.pathEndPosition).sqrMagnitude < 1f) {
+					happiness++;
+				}
+				break;
+			case AgentActions.Wander:
 				strength--;
 				happiness--;
 				break;
-			case AgentState.AtBar:
-				strength--;
-				happiness++;
-				break;
-			case AgentState.InTransit:
-				//enabled = false;
-				break;
+		}
+
+		if (act[0] > 0) {
+			curAction = (AgentActions) act[0];
+
+			switch (curAction) {
+				case AgentActions.Rest:
+					nma.SetDestination(Home.transform.position);
+
+					Work = null;
+					GetComponentInChildren<Renderer>().material.color = Color.red;
+					break;
+				case AgentActions.Work:
+					if (VillageAcademy.jobOffers.Count <= 0 && Work == null) {
+						curAction = AgentActions.Wander;
+						GetComponentInChildren<Renderer>().material.color = Color.green;						
+					} else {
+						Work = Work == null ? VillageAcademy.jobOffers.Dequeue() : Work;
+						nma.SetDestination(Work.transform.position);
+						GetComponentInChildren<Renderer>().material.color = Work.GetComponent<Factory>().workerColor;						
+					}
+					break;
+				case AgentActions.Fun:
+					nma.SetDestination(Bar.transform.position);
+					GetComponentInChildren<Renderer>().material.color = Color.yellow;												
+					break;
+				case AgentActions.Wander:
+					nma.path = null;
+					GetComponentInChildren<Renderer>().material.color = Color.green;											
+					break;
+			}
 		}
     }
 
     // to be implemented by the developer
-    public override void AgentReset()
-    {
+    public override void AgentReset() {
         
     }
 
-	public override void AgentOnDone()
-	{
-		agents.RemoveAll(item => item == null);
-		agents.Remove(this);
+	public override void AgentOnDone() {
 
-		Home.GetComponent<House>().RemoveOwner(this);
+	}
 
-		Destroy(gameObject);
+	void Update() {
+		switch (curAction) {
+			case AgentActions.Wander:
+				Wander ();
+				break;
+		}
+	}
+
+	void Wander () {
+		nma.SetDestination (transform.position + Quaternion.AngleAxis (Random.Range (-5f, 5f), Vector3.up) * transform.forward * nma.speed);
+
+		if (VillageAcademy.jobOffers.Count > 0) {
+			curAction = AgentActions.Work;
+			Work = VillageAcademy.jobOffers.Dequeue();
+			nma.SetDestination(Work.transform.position);
+			GetComponentInChildren<Renderer>().material.color = Work.GetComponent<Factory>().workerColor;						
+		}
 	}
 }

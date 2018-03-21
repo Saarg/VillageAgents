@@ -119,6 +119,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: a981c1d6d43de41d79a10697153c25cb, type: 2}
   m_StaticBatchInfo:
@@ -153,6 +154,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 5a0baad2da272453b9a19ed056bb1b4d, type: 2}
   m_StaticBatchInfo:
@@ -228,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 0}
   observations: []
-  maxStep: 500
+  maxStep: 0
   resetOnDone: 0
   reward: 0
   done: 0

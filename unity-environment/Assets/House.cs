@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class House : MonoBehaviour {
 
@@ -34,9 +35,6 @@ public class House : MonoBehaviour {
 	void OnTriggerEnter(Collider col) {
 		VillagerAgent agent = col.GetComponentInParent<VillagerAgent>();
 		if (agent != null) {
-			agent.curState = VillagerAgent.AgentState.AtHome;
-			//agent.enabled = true;
-
 			agents.Add(agent);
 		}
 	}

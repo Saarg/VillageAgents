@@ -6,23 +6,17 @@ public class VillagerDecision : MonoBehaviour, Decision {
 
 	public float[] Decide (List<float> state, List<Camera> observation, float reward, bool done, float[] memory)
     {
-		float[] action = new float[2];
-		action[0] = 0;
-		action[1] = 0;
+		float[] action = new float[1];
 
-		if (state[2] < 20f && state[3] > 30f) {
-			action[0] = 1;
-			action[1] = 0;
-		}
-
-		if (state[2] > 80f) {
-			action[0] = 1;
-			action[1] = 1;
-		}
-
-		if (state[3] < 30f) {
-			action[0] = 1;
-			action[1] = 3;
+		action[0] = (float) AgentActions.Wander;
+		if (state[(int) AgentStates.Strength] < 30f) {
+			action[0] = (float) AgentActions.Rest;			
+		} else if (state[(int) AgentStates.Happiness] < 30f) {
+			action[0] = (float) AgentActions.Fun;			
+		} else if (state[(int) AgentStates.Strength] > 80f){
+			action[0] = (float) AgentActions.Work;
+		} else if (state[(int) AgentStates.Happiness] > 80f){
+			action[0] = (float) AgentActions.Rest;
 		}
 
         return action;

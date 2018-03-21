@@ -10,8 +10,7 @@ public class Bar : MonoBehaviour {
 	void OnTriggerEnter(Collider col) {
 		VillagerAgent agent = col.GetComponentInParent<VillagerAgent>();
 		if (agent != null) {
-			agent.curState = VillagerAgent.AgentState.AtBar;
-			//agent.enabled = true;
+			
 
 			agents.Add(agent);
 		}

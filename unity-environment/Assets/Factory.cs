@@ -10,6 +10,8 @@ public class Factory : MonoBehaviour {
 	[SerializeField]
 	List<VillagerAgent> agents = new List<VillagerAgent>();
 
+	public Color workerColor = Color.blue;
+
 	public float GetProd() {
 		agents.RemoveAll(item => item == null);
 
@@ -19,8 +21,7 @@ public class Factory : MonoBehaviour {
 	void OnTriggerEnter(Collider col) {
 		VillagerAgent agent = col.GetComponentInParent<VillagerAgent>();
 		if (agent != null) {
-			agent.curState = VillagerAgent.AgentState.AtWork;
-			//agent.enabled = true;
+			
 
 			agents.Add(agent);
 		}

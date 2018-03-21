@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Jobs { Unemployed, Farmer, Miner }
+
 public class VillageAcademy : Academy {
 
     [SerializeField]
@@ -53,6 +55,8 @@ public class VillageAcademy : Academy {
     [SerializeField]
     Slider timeUI;
 
+    public static Queue<GameObject> jobOffers = new Queue<GameObject>();
+
 	public override void InitializeAcademy()
     {
 
@@ -65,7 +69,7 @@ public class VillageAcademy : Academy {
 
     public override void AcademyStep()
     {
-        
+        // Update productions
         foodProd = -VillagerAgent.AgentCount * 0.2f;
 
         foreach (Factory f in farms) {
@@ -102,21 +106,21 @@ public class VillageAcademy : Academy {
 
                 house.AddOwner(va);
 
-                if (coal != food && coal < food) {
-                    va.Work = coalPlants[Random.Range(0, coalPlants.Count)].gameObject;
-                } else if (coal != food) {
-                    va.Work = farms[Random.Range(0, farms.Count)].gameObject;
-                } else if (Random.Range(0, 2) == 0) {
-                    va.Work = coalPlants[Random.Range(0, coalPlants.Count)].gameObject;                    
-                } else {
-                    va.Work = farms[Random.Range(0, farms.Count)].gameObject;                    
-                }
-
                 va.Bar = bars[Random.Range(0, bars.Count)].gameObject;
 
                 va.GiveBrain(GetComponentInChildren<Brain>());
             }
             break;
+        }
+
+        GameObject farm = farms[Random.Range(0, farms.Count)].gameObject;
+        if (food < 400f && !jobOffers.Contains(farm)) {
+            jobOffers.Enqueue(farm);
+        }
+
+        GameObject c = coalPlants[Random.Range(0, coalPlants.Count)].gameObject;
+        if (coal < 400f && !jobOffers.Contains(c)) {
+            jobOffers.Enqueue(c);
         }
     }
 
