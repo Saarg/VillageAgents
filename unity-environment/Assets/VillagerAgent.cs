@@ -135,7 +135,7 @@ public class VillagerAgent : Agent {
 	}
 
 	void Wander () {
-		nma.SetDestination (transform.position + Quaternion.AngleAxis (Random.Range (-5f, 5f), Vector3.up) * transform.forward * nma.speed);
+		nma.SetDestination (transform.position + Quaternion.AngleAxis (Random.Range (-20f, 20f), Vector3.up) * transform.forward * nma.speed);
 
 		if (VillageAcademy.jobOffers.Count > 0) {
 			curAction = AgentActions.Work;

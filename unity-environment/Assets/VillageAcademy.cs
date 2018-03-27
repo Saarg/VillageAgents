@@ -114,12 +114,12 @@ public class VillageAcademy : Academy {
         }
 
         GameObject farm = farms[Random.Range(0, farms.Count)].gameObject;
-        if (Random.Range(food - 250f, food) < 250f && !jobOffers.Contains(farm)) {
+        if (foodProd < 0 && !jobOffers.Contains(farm)) {
             jobOffers.Enqueue(farm);
         }
 
         GameObject c = coalPlants[Random.Range(0, coalPlants.Count)].gameObject;
-        if (Random.Range(coal - 250f, coal) < 250f && !jobOffers.Contains(c)) {
+        if (coalProd < 0 && !jobOffers.Contains(c)) {
             jobOffers.Enqueue(c);
         }
     }
