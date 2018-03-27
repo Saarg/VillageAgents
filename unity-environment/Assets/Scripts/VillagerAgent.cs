@@ -76,12 +76,12 @@ public class VillagerAgent : Agent {
 				break;
 			case AgentActions.Fun:
 				if ((transform.position - nma.pathEndPosition).sqrMagnitude < 1f) {
-					happiness++;
+					happiness += 1.5f;
 				}
 				break;
 			case AgentActions.Wander:
 				strength--;
-				happiness--;
+				happiness -= 2f;
 				break;
 		}
 

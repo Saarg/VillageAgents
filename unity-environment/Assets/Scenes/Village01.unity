@@ -18957,7 +18957,7 @@ Prefab:
         type: 2}
       propertyPath: Bar
       value: 
-      objectReference: {fileID: 2092979608}
+      objectReference: {fileID: 967355268}
     - target: {fileID: 1612184976557358, guid: 9509a5a1533374425bfc543c94678766, type: 2}
       propertyPath: m_Name
       value: VillagerAgent (1)
@@ -21889,7 +21889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSteps: 0
   frameToSkip: 0
-  waitTime: 5
+  waitTime: 1
   isInference: 1
   trainingConfiguration:
     width: 128
@@ -24327,7 +24327,7 @@ Prefab:
         type: 2}
       propertyPath: Bar
       value: 
-      objectReference: {fileID: 2092979608}
+      objectReference: {fileID: 1045050800}
     - target: {fileID: 1612184976557358, guid: 9509a5a1533374425bfc543c94678766, type: 2}
       propertyPath: m_Name
       value: VillagerAgent (4)
@@ -24550,7 +24550,7 @@ Prefab:
         type: 2}
       propertyPath: Bar
       value: 
-      objectReference: {fileID: 2092979608}
+      objectReference: {fileID: 1045050800}
     - target: {fileID: 1612184976557358, guid: 9509a5a1533374425bfc543c94678766, type: 2}
       propertyPath: m_Name
       value: VillagerAgent (3)
@@ -24573,7 +24573,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16804
+  m_Name: pb_Mesh27980
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -28143,7 +28143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d785d48bc774ef782acd348c66ee91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prodPerAgent: 0.5
+  prodPerAgent: 0.4
   agents: []
   workerColor: {r: 0, g: 0.87411356, b: 1, a: 1}
 --- !u!208 &1637350919
@@ -29429,7 +29429,7 @@ Prefab:
         type: 2}
       propertyPath: Bar
       value: 
-      objectReference: {fileID: 2092979608}
+      objectReference: {fileID: 967355268}
     - target: {fileID: 1612184976557358, guid: 9509a5a1533374425bfc543c94678766, type: 2}
       propertyPath: m_Name
       value: VillagerAgent (2)

@@ -240,14 +240,12 @@ MonoBehaviour:
   agentStoredAction: []
   memory: []
   id: 0
-  Villager: {fileID: 1612184976557358}
   Home: {fileID: 0}
   Work: {fileID: 0}
   Bar: {fileID: 0}
   strength: 100
   happiness: 50
-  curState: 2
-  nextState: 0
+  curAction: 0
 --- !u!136 &136405250043663168
 CapsuleCollider:
   m_ObjectHideFlags: 1
