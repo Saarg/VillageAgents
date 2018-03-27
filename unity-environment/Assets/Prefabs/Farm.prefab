@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4383778780589628}
   - component: {fileID: 114895169223372096}
   - component: {fileID: 65618358686736166}
+  - component: {fileID: 208847088550937092}
   m_Layer: 0
   m_Name: Farm
   m_TagString: Untagged
@@ -4246,3 +4247,18 @@ MonoBehaviour:
   prodPerAgent: 0.8
   agents: []
   workerColor: {r: 0, g: 0, b: 1, a: 1}
+--- !u!208 &208847088550937092
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1905064553848844}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
