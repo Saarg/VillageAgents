@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prodPerAgent: 0.5
   agents: []
-  workerColor: {r: 0, g: 0, b: 1, a: 1}
+  workerColor: {r: 0, g: 0.5429058, b: 1, a: 1}
 --- !u!114 &114824097209982374
 MonoBehaviour:
   m_ObjectHideFlags: 1

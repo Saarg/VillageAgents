@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildManager : MonoBehaviour {
 
 	[SerializeField]
-	VillageAcademy villageAcademy;
+	VillageAgent villageAgent;
 
 	[SerializeField]
 	GameObject housePrefab;
@@ -38,13 +38,13 @@ public class BuildManager : MonoBehaviour {
 
 			if (Input.GetMouseButton(0)) {
 				if (building.name.Contains(housePrefab.name)) {
-					villageAcademy.AddHouse(building.GetComponent<House>());
+					villageAgent.AddHouse(building.GetComponent<House>());
 				} else if (building.name.Contains(farmPrefab.name)) {
-					villageAcademy.AddFarm(building.GetComponent<Factory>());
+					villageAgent.AddFarm(building.GetComponent<Factory>());
 				} else if (building.name.Contains(factoryPrefab.name)) {
-					villageAcademy.AddCoalPlant(building.GetComponent<Factory>());
+					villageAgent.AddCoalPlant(building.GetComponent<Factory>());
 				} else if (building.name.Contains(pubPrefab.name)) {
-					villageAcademy.AddBar(building.GetComponent<Bar>());
+					villageAgent.AddBar(building.GetComponent<Bar>());
 				}
 
 				building = null;

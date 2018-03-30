@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 553433748}
-  m_IndirectSpecularColor: {r: 0.13235591, g: 0.3383047, b: 0.69941133, a: 1}
+  m_IndirectSpecularColor: {r: 0.399268, g: 0.61663103, b: 0.85398704, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4462,19 +4462,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 88279043}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &112910855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  brain: {fileID: 803784903}
 --- !u!1 &192949410
 GameObject:
   m_ObjectHideFlags: 0
@@ -4504,7 +4491,7 @@ RectTransform:
   - {fileID: 1972628589}
   - {fileID: 488339652}
   m_Father: {fileID: 1721637414}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -4516,7 +4503,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16904
+  m_Name: pb_Mesh15560
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -4682,7 +4669,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-12222
+  m_Name: pb_Mesh15252
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -4843,7 +4830,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
---- !u!114 &300100752
+--- !u!114 &316404707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -4851,9 +4838,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
+  m_Name: (Clone)
   m_EditorClassIdentifier: 
+  broadcast: 1
   brain: {fileID: 803784903}
 --- !u!1 &323273158
 GameObject:
@@ -12728,7 +12716,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16384
+  m_Name: pb_Mesh14982
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -12971,7 +12959,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 716196104}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &487404611
 MeshCollider:
@@ -13822,7 +13810,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16674
+  m_Name: pb_Mesh15320
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -13983,6 +13971,73 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!1 &505457501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 505457502}
+  - component: {fileID: 505457504}
+  - component: {fileID: 505457503}
+  m_Layer: 0
+  m_Name: VillageBrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &505457502
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 505457501}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 890219708}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &505457503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 505457501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d28103dd488e45bfb8b9e936b91e97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &505457504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 505457501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c676a8ddf5a5f4f64b35e9ed5028679d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brainParameters:
+    vectorObservationSize: 0
+    numStackedVectorObservations: 1
+    vectorActionSize: 0
+    cameraResolutions: []
+    vectorActionDescriptions: []
+    vectorActionSpaceType: 0
+    vectorObservationSpaceType: 1
+  brainType: 0
+  CoreBrains:
+  - {fileID: 640782409}
+  - {fileID: 1028697853}
+  - {fileID: 768560962}
+  - {fileID: 1322270448}
+  instanceID: -58026
 --- !u!1 &530671154
 GameObject:
   m_ObjectHideFlags: 0
@@ -18733,12 +18788,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &553739316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
+  m_Name: (Clone)
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
 --- !u!43 &586362714
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16502
+  m_Name: pb_Mesh15104
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -18980,6 +19047,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9509a5a1533374425bfc543c94678766, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &640782409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
+  m_Name: (Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  continuousPlayerActions: []
+  discretePlayerActions: []
+  defaultAction: 0
+  brain: {fileID: 505457504}
 --- !u!1 &642389403
 GameObject:
   m_ObjectHideFlags: 0
@@ -20537,12 +20620,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 671677305}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &681132020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
+  m_Name: (Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  graphModel: {fileID: 0}
+  graphScope: 
+  graphPlaceholders: []
+  BatchSizePlaceholderName: batch_size
+  VectorObservationPlacholderName: vector_observation
+  RecurrentInPlaceholderName: recurrent_in
+  RecurrentOutPlaceholderName: recurrent_out
+  VisualObservationPlaceholderName: []
+  ActionPlaceholderName: action
+  PreviousActionPlaceholderName: prev_action
+  brain: {fileID: 0}
 --- !u!43 &711223215
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-22874
+  m_Name: pb_Mesh15280
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -20711,6 +20817,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 716196104}
+  - component: {fileID: 716196105}
   m_Layer: 0
   m_Name: Village
   m_TagString: Untagged
@@ -20732,19 +20839,66 @@ Transform:
   - {fileID: 642389404}
   - {fileID: 667861148}
   - {fileID: 1279359989}
+  - {fileID: 916868165}
+  - {fileID: 1811526928}
+  - {fileID: 487404610}
   - {fileID: 1637350916}
   - {fileID: 1786771682}
   - {fileID: 1340530890}
   - {fileID: 2092979614}
-  - {fileID: 916868165}
-  - {fileID: 1811526928}
-  - {fileID: 487404610}
   - {fileID: 325008313}
   - {fileID: 967355269}
   - {fileID: 1045050801}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &716196105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 716196103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e444c5ca95714834afdf6c4014ccd76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 505457504}
+  agentParameters:
+    agentCameras: []
+    maxStep: 0
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 1
+  houses:
+  - {fileID: 736861414}
+  - {fileID: 642389411}
+  - {fileID: 667861155}
+  - {fileID: 1279359996}
+  - {fileID: 916868166}
+  - {fileID: 1811526929}
+  - {fileID: 487404612}
+  farms:
+  - {fileID: 1340530892}
+  food: 50
+  coalPlants:
+  - {fileID: 1637350918}
+  coal: 50
+  bars:
+  - {fileID: 2092979615}
+  - {fileID: 967355271}
+  - {fileID: 1045050803}
+  happiness: 50
+  villagerBrain: {fileID: 803784903}
+  villagerPrefab: {fileID: 1612184976557358, guid: 9509a5a1533374425bfc543c94678766,
+    type: 2}
+  babyProgress: 0
+  coalUI: {fileID: 1972628590}
+  foodUI: {fileID: 1539491572}
+  happinessUI: {fileID: 1162141253}
+  reproducitonUI: {fileID: 1544481506}
+  population: {fileID: 997723173}
+  timeUI: {fileID: 1896711872}
 --- !u!1 &721371720
 GameObject:
   m_ObjectHideFlags: 0
@@ -21532,6 +21686,18 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -1, y: 0, z: -1.5000001}
   m_TimeToStationary: 0.5
+--- !u!114 &768560962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
+  m_Name: (Clone)
+  m_EditorClassIdentifier: 
+  brain: {fileID: 0}
 --- !u!1 &793035322
 GameObject:
   m_ObjectHideFlags: 0
@@ -21635,21 +21801,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainParameters:
-    stateSize: 3
-    actionSize: 1
-    memorySize: 3
+    vectorObservationSize: 3
+    numStackedVectorObservations: 1
+    vectorActionSize: 2
     cameraResolutions: []
-    actionDescriptions:
-    - Next action
-    actionSpaceType: 1
-    stateSpaceType: 1
+    vectorActionDescriptions:
+    - 
+    - 
+    vectorActionSpaceType: 0
+    vectorObservationSpaceType: 1
   brainType: 1
   CoreBrains:
-  - {fileID: 1023239751}
-  - {fileID: 112910855}
-  - {fileID: 300100752}
-  - {fileID: 1549137259}
-  instanceID: 14240
+  - {fileID: 1087520286}
+  - {fileID: 316404707}
+  - {fileID: 553739316}
+  - {fileID: 681132020}
+  instanceID: 15178
 --- !u!114 &803784904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21703,7 +21870,7 @@ RectTransform:
   - {fileID: 1539491571}
   - {fileID: 492402939}
   m_Father: {fileID: 1721637414}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -21873,6 +22040,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 803784906}
+  - {fileID: 505457502}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21888,53 +22056,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSteps: 0
-  frameToSkip: 0
-  waitTime: 1
-  isInference: 1
   trainingConfiguration:
     width: 128
     height: 72
     qualityLevel: 0
     timeScale: 100
-    targetFrameRate: 60
+    targetFrameRate: 100
   inferenceConfiguration:
     width: 1280
     height: 720
     qualityLevel: 5
     timeScale: 1
-    targetFrameRate: 60
-  defaultResetParameters: []
-  done: 0
-  episodeCount: 1
-  currentStep: 0
-  houses:
-  - {fileID: 736861414}
-  - {fileID: 642389411}
-  - {fileID: 667861155}
-  - {fileID: 1279359996}
-  - {fileID: 916868166}
-  - {fileID: 1811526929}
-  - {fileID: 487404612}
-  farms:
-  - {fileID: 1340530892}
-  food: 250
-  coalPlants:
-  - {fileID: 1637350918}
-  coal: 250
-  bars:
-  - {fileID: 2092979615}
-  - {fileID: 967355271}
-  - {fileID: 1045050803}
-  happiness: 250
-  villagerPrefab: {fileID: 1612184976557358, guid: 9509a5a1533374425bfc543c94678766,
-    type: 2}
-  babyProgress: 0
-  coalUI: {fileID: 1972628590}
-  foodUI: {fileID: 1539491572}
-  happinessUI: {fileID: 1162141253}
-  reproducitonUI: {fileID: 1544481506}
-  population: {fileID: 997723173}
-  timeUI: {fileID: 1896711872}
+    targetFrameRate: 100
+  resetParameters:
+    resetParameters: []
 --- !u!1 &899934695
 GameObject:
   m_ObjectHideFlags: 0
@@ -22037,7 +22172,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 716196104}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 45.000004, z: 0}
 --- !u!114 &916868166
 MonoBehaviour:
@@ -23567,7 +23702,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 997723171}
---- !u!114 &1023239751
+--- !u!114 &1028697853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -23575,14 +23710,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+  m_Script: {fileID: 11500000, guid: 943466ab374444748a364f9d6c3e2fe2, type: 3}
+  m_Name: (Clone)
   m_EditorClassIdentifier: 
   broadcast: 1
-  continuousPlayerActions: []
-  discretePlayerActions: []
-  defaultAction: 0
-  brain: {fileID: 803784903}
+  brain: {fileID: 0}
 --- !u!1 &1045050800
 GameObject:
   m_ObjectHideFlags: 0
@@ -24269,6 +24401,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1045050800}
   m_Mesh: {fileID: 711223215}
+--- !u!114 &1087520286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e9bda8f3cf1492fa74926a530f6f70, type: 3}
+  m_Name: (Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  continuousPlayerActions: []
+  discretePlayerActions: []
+  defaultAction: 0
+  brain: {fileID: 0}
 --- !u!1001 &1161689425
 Prefab:
   m_ObjectHideFlags: 0
@@ -24573,7 +24721,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh27980
+  m_Name: pb_Mesh15454
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -25477,7 +25625,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16544
+  m_Name: pb_Mesh15150
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -25706,6 +25854,29 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1322186598}
+--- !u!114 &1322270448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
+  m_Name: (Clone)
+  m_EditorClassIdentifier: 
+  broadcast: 1
+  graphModel: {fileID: 0}
+  graphScope: 
+  graphPlaceholders: []
+  BatchSizePlaceholderName: batch_size
+  VectorObservationPlacholderName: vector_observation
+  RecurrentInPlaceholderName: recurrent_in
+  RecurrentOutPlaceholderName: recurrent_out
+  VisualObservationPlaceholderName: []
+  ActionPlaceholderName: action
+  PreviousActionPlaceholderName: prev_action
+  brain: {fileID: 0}
 --- !u!1 &1325332520
 GameObject:
   m_ObjectHideFlags: 0
@@ -25924,7 +26095,6 @@ GameObject:
   - component: {fileID: 1340530890}
   - component: {fileID: 1340530892}
   - component: {fileID: 1340530891}
-  - component: {fileID: 1340530893}
   m_Layer: 0
   m_Name: Farm
   m_TagString: Untagged
@@ -25944,7 +26114,7 @@ Transform:
   m_Children:
   - {fileID: 57585732}
   m_Father: {fileID: 716196104}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1340530891
 BoxCollider:
@@ -25972,21 +26142,6 @@ MonoBehaviour:
   prodPerAgent: 0.8
   agents: []
   workerColor: {r: 0, g: 0, b: 1, a: 1}
---- !u!208 &1340530893
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1340530889}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &1389970161
 GameObject:
   m_ObjectHideFlags: 0
@@ -26183,7 +26338,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16840
+  m_Name: pb_Mesh15494
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -26482,28 +26637,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1544481504}
---- !u!114 &1549137259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: (Clone)(Clone)(Clone)(Clone)
-  m_EditorClassIdentifier: 
-  broadcast: 1
-  graphModel: {fileID: 0}
-  graphScope: 
-  graphPlaceholders: []
-  BatchSizePlaceholderName: batch_size
-  StatePlacholderName: state
-  RecurrentInPlaceholderName: recurrent_in
-  RecurrentOutPlaceholderName: recurrent_out
-  ObservationPlaceholderName: []
-  ActionPlaceholderName: action
-  brain: {fileID: 0}
 --- !u!1 &1583813121
 GameObject:
   m_ObjectHideFlags: 0
@@ -26594,7 +26727,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16410
+  m_Name: pb_Mesh15008
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -26806,34 +26939,9 @@ Prefab:
       objectReference: {fileID: 487404609}
     - target: {fileID: 114397193150651486, guid: 9509a5a1533374425bfc543c94678766,
         type: 2}
-      propertyPath: Work
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114397193150651486, guid: 9509a5a1533374425bfc543c94678766,
-        type: 2}
       propertyPath: Bar
       value: 
       objectReference: {fileID: 2092979608}
-    - target: {fileID: 114397193150651486, guid: 9509a5a1533374425bfc543c94678766,
-        type: 2}
-      propertyPath: strength
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114397193150651486, guid: 9509a5a1533374425bfc543c94678766,
-        type: 2}
-      propertyPath: happiness
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114397193150651486, guid: 9509a5a1533374425bfc543c94678766,
-        type: 2}
-      propertyPath: nextState
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114397193150651486, guid: 9509a5a1533374425bfc543c94678766,
-        type: 2}
-      propertyPath: maxStep
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9509a5a1533374425bfc543c94678766, type: 2}
   m_IsPrefabParent: 0
@@ -26904,7 +27012,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16612
+  m_Name: pb_Mesh15220
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -27993,61 +28101,9 @@ MonoBehaviour:
     areaError: 15
   asset_guid: 
   dontDestroyMeshOnDelete: 0
-  m_selectedFaces: 03000000070000000600000009000000080000000a000000
-  m_SelectedEdges:
-  - x: 16
-    y: 17
-  - x: 17
-    y: 14
-  - x: 14
-    y: 15
-  - x: 15
-    y: 16
-  - x: 35
-    y: 36
-  - x: 36
-    y: 37
-  - x: 39
-    y: 35
-  - x: 37
-    y: 38
-  - x: 38
-    y: 39
-  - x: 31
-    y: 32
-  - x: 32
-    y: 33
-  - x: 30
-    y: 31
-  - x: 34
-    y: 30
-  - x: 33
-    y: 34
-  - x: 44
-    y: 45
-  - x: 45
-    y: 46
-  - x: 46
-    y: 47
-  - x: 47
-    y: 44
-  - x: 40
-    y: 41
-  - x: 41
-    y: 42
-  - x: 42
-    y: 43
-  - x: 43
-    y: 40
-  - x: 51
-    y: 48
-  - x: 48
-    y: 49
-  - x: 49
-    y: 50
-  - x: 50
-    y: 51
-  m_selectedTriangles: 10000000110000000e000000100000000e0000000f0000002300000024000000250000002300000025000000270000002700000025000000260000001f00000020000000210000001e0000001f00000022000000220000001f000000210000002c0000002d0000002e0000002c0000002e0000002f00000028000000290000002a000000280000002a0000002b000000330000003000000031000000330000003100000032000000
+  m_selectedFaces: 
+  m_SelectedEdges: []
+  m_selectedTriangles: 
 --- !u!114 &1637350913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28116,7 +28172,7 @@ Transform:
   m_Children:
   - {fileID: 534030949}
   m_Father: {fileID: 716196104}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!64 &1637350917
 MeshCollider:
@@ -28283,8 +28339,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 827896171}
   - {fileID: 192949411}
+  - {fileID: 827896171}
   - {fileID: 1285067204}
   - {fileID: 1684219116}
   - {fileID: 1328625508}
@@ -28304,7 +28360,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1786771682}
-  - component: {fileID: 1786771683}
   m_Layer: 0
   m_Name: Roads
   m_TagString: Untagged
@@ -28329,23 +28384,8 @@ Transform:
   - {fileID: 29968364}
   - {fileID: 721371721}
   m_Father: {fileID: 716196104}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!208 &1786771683
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1786771681}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &1811526927
 GameObject:
   m_ObjectHideFlags: 0
@@ -28380,7 +28420,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 716196104}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 45.000004, z: 0}
 --- !u!114 &1811526929
 MonoBehaviour:
@@ -29053,7 +29093,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16338
+  m_Name: pb_Mesh14934
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -29674,7 +29714,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16476
+  m_Name: pb_Mesh15076
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -30492,7 +30532,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 716196104}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2092979615
 MonoBehaviour:

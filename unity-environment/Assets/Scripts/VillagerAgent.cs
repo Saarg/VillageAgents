@@ -49,39 +49,34 @@ public class VillagerAgent : Agent {
 		curAction = AgentActions.Wander;
 	}
 
-    public override List<float> CollectState()
+    public override void CollectObservations()
     {
-        List<float> state = new List<float>();
-
-        state.Add((float) strength);
-        state.Add((float) happiness);
-        state.Add((float) curAction);
-
-        return state;
+		AddVectorObs((float) strength);
+        AddVectorObs((float) happiness);
+        AddVectorObs((float) curAction);
     }
 
-    // to be implemented by the developer
-    public override void AgentStep(float[] act) {
+    public override void AgentAction(float[] act, string textAction) {
 		switch (curAction) {
 			case AgentActions.Rest:
 				if ((transform.position - nma.pathEndPosition).sqrMagnitude < 1f) {
-					strength++;
+					strength += Time.deltaTime;
 				}
 				break;
 			case AgentActions.Work:
 				if ((transform.position - nma.pathEndPosition).sqrMagnitude < 1f) {
-					strength--;
-					happiness--;
+					strength -= Time.deltaTime;
+					happiness -= Time.deltaTime;
 				}
 				break;
 			case AgentActions.Fun:
 				if ((transform.position - nma.pathEndPosition).sqrMagnitude < 1f) {
-					happiness += 1.5f;
+					happiness += 1.5f * Time.deltaTime;
 				}
 				break;
 			case AgentActions.Wander:
-				strength--;
-				happiness -= 2f;
+				strength -= Time.deltaTime;
+				happiness -= 2f * Time.deltaTime;
 				break;
 		}
 
@@ -96,11 +91,11 @@ public class VillagerAgent : Agent {
 					GetComponentInChildren<Renderer>().material.color = Color.red;
 					break;
 				case AgentActions.Work:
-					if (VillageAcademy.jobOffers.Count <= 0 && Work == null) {
+					if (VillageAgent.jobOffers.Count <= 0 && Work == null) {
 						curAction = AgentActions.Wander;
 						GetComponentInChildren<Renderer>().material.color = Color.green;						
 					} else {
-						Work = Work == null ? VillageAcademy.jobOffers.Dequeue() : Work;
+						Work = Work == null ? VillageAgent.jobOffers.Dequeue() : Work;
 						nma.SetDestination(Work.transform.position);
 						GetComponentInChildren<Renderer>().material.color = Work.GetComponent<Factory>().workerColor;						
 					}
@@ -137,9 +132,9 @@ public class VillagerAgent : Agent {
 	void Wander () {
 		nma.SetDestination (transform.position + Quaternion.AngleAxis (Random.Range (-20f, 20f), Vector3.up) * transform.forward * nma.speed);
 
-		if (VillageAcademy.jobOffers.Count > 0) {
+		if (VillageAgent.jobOffers.Count > 0) {
 			curAction = AgentActions.Work;
-			Work = VillageAcademy.jobOffers.Dequeue();
+			Work = VillageAgent.jobOffers.Dequeue();
 			nma.SetDestination(Work.transform.position);
 			GetComponentInChildren<Renderer>().material.color = Work.GetComponent<Factory>().workerColor;						
 		}

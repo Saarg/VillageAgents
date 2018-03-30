@@ -4,26 +4,36 @@ using UnityEngine;
 
 public class VillagerDecision : MonoBehaviour, Decision {
 
-	public float[] Decide (List<float> state, List<Camera> observation, float reward, bool done, float[] memory)
+	public float[] Decide (
+        List<float> vectorObs,
+        List<Texture2D> visualObs,
+        float reward,
+        bool done,
+        List<float> memory)
     {
 		float[] action = new float[1];
 
 		action[0] = (float) AgentActions.Wander;
-		if (state[(int) AgentStates.Strength] < 30f) {
+		if (vectorObs[(int) AgentStates.Strength] < 30f) {
 			action[0] = (float) AgentActions.Rest;			
-		} else if (state[(int) AgentStates.Happiness] < 30f) {
+		} else if (vectorObs[(int) AgentStates.Happiness] < 30f) {
 			action[0] = (float) AgentActions.Fun;			
-		} else if (state[(int) AgentStates.Strength] > 80f){
+		} else if (vectorObs[(int) AgentStates.Strength] > 80f && vectorObs[(int) AgentStates.CurAction] != (float) AgentActions.Fun || vectorObs[(int) AgentStates.CurAction] == (float) AgentActions.Work){
 			action[0] = (float) AgentActions.Work;
-		} else if (state[(int) AgentStates.Happiness] > 80f){
+		} else if (vectorObs[(int) AgentStates.Happiness] > 80f){
 			action[0] = (float) AgentActions.Rest;
 		}
 
         return action;
 	}
 
-	public float[] MakeMemory (List<float> state, List<Camera> observation, float reward, bool done, float[] memory)
+	public List<float> MakeMemory(
+        List<float> vectorObs,
+        List<Texture2D> visualObs,
+        float reward,
+        bool done,
+        List<float> memory)
     {
-        return new float[0];
+        return new List<float>();
     }
 }
