@@ -25,6 +25,8 @@ public class VillagerAgent : Agent {
 
 	NavMeshAgent nma;
 
+	public VillageAgent village;
+
 	[Header("Specific to Villagers")]
 	public GameObject Home;
 	public GameObject Work;
@@ -91,11 +93,11 @@ public class VillagerAgent : Agent {
 					GetComponentInChildren<Renderer>().material.color = Color.red;
 					break;
 				case AgentActions.Work:
-					if (VillageAgent.jobOffers.Count <= 0 && Work == null) {
+					if (village.jobOffers.Count <= 0 && Work == null) {
 						curAction = AgentActions.Wander;
 						GetComponentInChildren<Renderer>().material.color = Color.green;						
 					} else {
-						Work = Work == null ? VillageAgent.jobOffers.Dequeue() : Work;
+						Work = Work == null ? village.jobOffers.Dequeue() : Work;
 						nma.SetDestination(Work.transform.position);
 						GetComponentInChildren<Renderer>().material.color = Work.GetComponent<Factory>().workerColor;						
 					}
@@ -132,9 +134,9 @@ public class VillagerAgent : Agent {
 	void Wander () {
 		nma.SetDestination (transform.position + Quaternion.AngleAxis (Random.Range (-20f, 20f), Vector3.up) * transform.forward * nma.speed);
 
-		if (VillageAgent.jobOffers.Count > 0) {
+		if (village.jobOffers.Count > 0) {
 			curAction = AgentActions.Work;
-			Work = VillageAgent.jobOffers.Dequeue();
+			Work = village.jobOffers.Dequeue();
 			nma.SetDestination(Work.transform.position);
 			GetComponentInChildren<Renderer>().material.color = Work.GetComponent<Factory>().workerColor;						
 		}

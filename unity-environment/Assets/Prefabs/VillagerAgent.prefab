@@ -234,7 +234,7 @@ MonoBehaviour:
     maxStep: 0
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 1
+    numberOfActionsBetweenDecisions: 10
   Home: {fileID: 0}
   Work: {fileID: 0}
   Bar: {fileID: 0}

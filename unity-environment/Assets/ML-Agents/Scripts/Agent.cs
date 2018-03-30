@@ -280,14 +280,6 @@ public abstract class Agent : MonoBehaviour
         {
             ResetData();
         }
-        else
-        {
-            Debug.Log(
-                string.Format(
-                    "The Agent component attached to the " +
-                        "GameObject {0} was initialized without a brain.",
-                    gameObject.name));
-        }
 
         InitializeAgent();
     }

@@ -12708,6 +12708,11 @@ Prefab:
       propertyPath: maxStep
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114397193150651486, guid: 9509a5a1533374425bfc543c94678766,
+        type: 2}
+      propertyPath: village
+      value: 
+      objectReference: {fileID: 716196105}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9509a5a1533374425bfc543c94678766, type: 2}
   m_IsPrefabParent: 0
@@ -14024,14 +14029,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 0
+    vectorObservationSize: 2
     numStackedVectorObservations: 1
-    vectorActionSize: 0
+    vectorActionSize: 3
     cameraResolutions: []
-    vectorActionDescriptions: []
-    vectorActionSpaceType: 0
+    vectorActionDescriptions:
+    - Action frame number
+    - Farm job offer
+    - Coal job offer
+    vectorActionSpaceType: 1
     vectorObservationSpaceType: 1
-  brainType: 0
+  brainType: 1
   CoreBrains:
   - {fileID: 640782409}
   - {fileID: 1028697853}
@@ -19044,6 +19052,11 @@ Prefab:
       propertyPath: maxStep
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114397193150651486, guid: 9509a5a1533374425bfc543c94678766,
+        type: 2}
+      propertyPath: village
+      value: 
+      objectReference: {fileID: 716196105}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9509a5a1533374425bfc543c94678766, type: 2}
   m_IsPrefabParent: 0
@@ -20869,7 +20882,7 @@ MonoBehaviour:
     maxStep: 0
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 1
+    numberOfActionsBetweenDecisions: 100
   houses:
   - {fileID: 736861414}
   - {fileID: 642389411}
@@ -20880,9 +20893,11 @@ MonoBehaviour:
   - {fileID: 487404612}
   farms:
   - {fileID: 1340530892}
+  foodProd: 0
   food: 50
   coalPlants:
   - {fileID: 1637350918}
+  coalProd: 0
   coal: 50
   bars:
   - {fileID: 2092979615}
@@ -21808,7 +21823,7 @@ MonoBehaviour:
     vectorActionDescriptions:
     - 
     - 
-    vectorActionSpaceType: 0
+    vectorActionSpaceType: 1
     vectorObservationSpaceType: 1
   brainType: 1
   CoreBrains:
@@ -23714,7 +23729,7 @@ MonoBehaviour:
   m_Name: (Clone)
   m_EditorClassIdentifier: 
   broadcast: 1
-  brain: {fileID: 0}
+  brain: {fileID: 505457504}
 --- !u!1 &1045050800
 GameObject:
   m_ObjectHideFlags: 0
@@ -24500,6 +24515,11 @@ Prefab:
       propertyPath: maxStep
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114397193150651486, guid: 9509a5a1533374425bfc543c94678766,
+        type: 2}
+      propertyPath: village
+      value: 
+      objectReference: {fileID: 716196105}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9509a5a1533374425bfc543c94678766, type: 2}
   m_IsPrefabParent: 0
@@ -24713,6 +24733,11 @@ Prefab:
       propertyPath: maxStep
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114397193150651486, guid: 9509a5a1533374425bfc543c94678766,
+        type: 2}
+      propertyPath: village
+      value: 
+      objectReference: {fileID: 716196105}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9509a5a1533374425bfc543c94678766, type: 2}
   m_IsPrefabParent: 0
@@ -26942,6 +26967,11 @@ Prefab:
       propertyPath: Bar
       value: 
       objectReference: {fileID: 2092979608}
+    - target: {fileID: 114397193150651486, guid: 9509a5a1533374425bfc543c94678766,
+        type: 2}
+      propertyPath: village
+      value: 
+      objectReference: {fileID: 716196105}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9509a5a1533374425bfc543c94678766, type: 2}
   m_IsPrefabParent: 0
@@ -29484,6 +29514,11 @@ Prefab:
       propertyPath: maxStep
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114397193150651486, guid: 9509a5a1533374425bfc543c94678766,
+        type: 2}
+      propertyPath: village
+      value: 
+      objectReference: {fileID: 716196105}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9509a5a1533374425bfc543c94678766, type: 2}
   m_IsPrefabParent: 0

@@ -15,6 +15,7 @@ public class VillageAgent : Agent {
     List<Factory> farms;
     public void AddFarm(Factory farm) { farms.Add(farm); }
     public void RemoveFarm(Factory farm) { farms.Remove(farm); }
+    [SerializeField]	
     float foodProd;
     [SerializeField]
     float food = 50;
@@ -23,6 +24,7 @@ public class VillageAgent : Agent {
     List<Factory> coalPlants = new List<Factory>();
     public void AddCoalPlant(Factory coalPlant) { coalPlants.Add(coalPlant); }
     public void RemoveCoalPlant(Factory coalPlant) { coalPlants.Remove(coalPlant); }
+    [SerializeField]	
     float coalProd;
     [SerializeField]
     float coal = 50;
@@ -55,7 +57,7 @@ public class VillageAgent : Agent {
     [SerializeField]
     Slider timeUI;
 
-	public static Queue<GameObject> jobOffers = new Queue<GameObject>();
+	public Queue<GameObject> jobOffers = new Queue<GameObject>();
 
 	public override void InitializeAgent() {
 		
@@ -63,7 +65,8 @@ public class VillageAgent : Agent {
 
     public override void CollectObservations()
     {
-		
+		AddVectorObs((float) foodProd);
+        AddVectorObs((float) coalProd);
     }
 
     public override void AgentAction(float[] act, string textAction) {
@@ -105,21 +108,28 @@ public class VillageAgent : Agent {
                 house.AddOwner(va);
 
                 va.Bar = bars[Random.Range(0, bars.Count)].gameObject;
+				va.village = this;
 
                 va.GiveBrain(villagerBrain);
             }
             break;
         }
 
-        GameObject farm = farms[Random.Range(0, farms.Count)].gameObject;
-        if (foodProd <= 0 && !jobOffers.Contains(farm)) {
-            jobOffers.Enqueue(farm);
-        }
+		if (act[0] == Time.frameCount) {
+			if (act[1] != 0) {
+				GameObject farm = farms[Random.Range(0, farms.Count)].gameObject;
+				if (!jobOffers.Contains(farm)) {
+					jobOffers.Enqueue(farm);
+				}
+			}
 
-        GameObject c = coalPlants[Random.Range(0, coalPlants.Count)].gameObject;
-        if (coalProd <= 0 && !jobOffers.Contains(c)) {
-            jobOffers.Enqueue(c);
-        }
+			if (act[2] != 0) {		
+				GameObject c = coalPlants[Random.Range(0, coalPlants.Count)].gameObject;
+				if (!jobOffers.Contains(c)) {				
+					jobOffers.Enqueue(c);
+				}		
+			}
+		}
     }
 
     public override void AgentReset() {
