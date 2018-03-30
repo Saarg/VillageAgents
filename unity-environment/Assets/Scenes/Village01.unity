@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 553433748}
-  m_IndirectSpecularColor: {r: 0.399268, g: 0.61663103, b: 0.85398704, a: 1}
+  m_IndirectSpecularColor: {r: 0.39900756, g: 0.6163651, b: 0.85344726, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -52,7 +52,7 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 0
+    m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 10
@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000034, guid: 7af7dd6fc0a524a1d909ae13cbc05048,
+  m_LightingDataAsset: {fileID: 112000040, guid: 7af7dd6fc0a524a1d909ae13cbc05048,
     type: 2}
   m_UseShadowmask: 0
 --- !u!196 &4
