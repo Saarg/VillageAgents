@@ -19,8 +19,7 @@ ressources:
 Depending on the ressources and production the village emits job offers.
 
 ## Villager agent
-
-<img style="float: right;" src="Screenshots/Villager01.png">
+<img align="right" src="Screenshots/Villager01.png" />
 
 The villager agent belongs to a village and he is defined by his strength and happiness. The agent chooses between 4 actions:
 - Wander: if the agents doesn't find a job offer
