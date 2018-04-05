@@ -93,11 +93,10 @@ public class VillagerAgent : Agent {
 					GetComponentInChildren<Renderer>().material.color = Color.red;
 					break;
 				case AgentActions.Work:
-					if (village.jobOffers.Count <= 0 && Work == null) {
+					if (Work == null) {
 						curAction = AgentActions.Wander;
 						GetComponentInChildren<Renderer>().material.color = Color.green;						
 					} else {
-						Work = Work == null ? village.jobOffers.Dequeue() : Work;
 						nma.SetDestination(Work.transform.position);
 						GetComponentInChildren<Renderer>().material.color = Work.GetComponent<Factory>().workerColor;						
 					}
@@ -111,6 +110,18 @@ public class VillagerAgent : Agent {
 					GetComponentInChildren<Renderer>().material.color = Color.green;											
 					break;
 			}
+		}
+
+		if (Work == null) {
+			village.jobOffers.ForEach(job => {
+				if (!job.Contains(this)) {
+					JobApplications application = new JobApplications();
+					application.agent = this;
+					application.interest = (strength/100f * 0.5f) + (happiness/100f + 0.25f) + (1/(job.workplace.transform.position - transform.position).sqrMagnitude);
+					
+					job.applications.Add(application);
+				}
+			});
 		}
     }
 
@@ -133,12 +144,19 @@ public class VillagerAgent : Agent {
 
 	void Wander () {
 		nma.SetDestination (transform.position + Quaternion.AngleAxis (Random.Range (-20f, 20f), Vector3.up) * transform.forward * nma.speed);
+	}
 
-		if (village.jobOffers.Count > 0) {
-			curAction = AgentActions.Work;
-			Work = village.jobOffers.Dequeue();
+	void SetWork(GameObject workplace){
+		Work = workplace;
+
+		if (curAction == AgentActions.Wander || curAction == AgentActions.Work) {
+			curAction = AgentActions.Work;			
 			nma.SetDestination(Work.transform.position);
-			GetComponentInChildren<Renderer>().material.color = Work.GetComponent<Factory>().workerColor;						
+			GetComponentInChildren<Renderer>().material.color = Work.GetComponent<Factory>().workerColor;
 		}
+	}
+
+	public bool HasWork() {
+		return Work != null;
 	}
 }

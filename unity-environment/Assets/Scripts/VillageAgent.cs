@@ -4,6 +4,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class AgentJob {
+    public string name;
+    public GameObject workplace;
+    public List<JobApplications> applications = new List<JobApplications>();
+
+    public bool Contains(VillagerAgent agent) {
+        bool retour = false;
+
+        applications.ForEach(application => {
+            if (application.agent == agent)
+                retour = true;
+        });
+        return retour;
+    }
+}
+
+[System.Serializable]
+public class JobApplications {
+    public VillagerAgent agent;
+    public float interest;
+}
+
 public class VillageAgent : Agent {
 
 	[SerializeField]
@@ -56,8 +79,12 @@ public class VillageAgent : Agent {
     Text population;
     [SerializeField]
     Slider timeUI;
+    [SerializeField]
+    Text jobsUI;    
 
-	public Queue<GameObject> jobOffers = new Queue<GameObject>();
+    [Header("Jobs")]    
+    [SerializeField]
+	public List<AgentJob> jobOffers = new List<AgentJob>();
 
 	public override void InitializeAgent() {
 		
@@ -115,19 +142,56 @@ public class VillageAgent : Agent {
             break;
         }
 
+        // detect if a decision needs processing
 		if (act[0] == Time.frameCount) {
+            jobOffers.ForEach((job) => {
+                JobApplications bestAplication = null;
+                
+                job.applications.ForEach((application) => {
+                    if (bestAplication == null || bestAplication.interest < application.interest && !application.agent.HasWork()) {
+                        bestAplication = application;
+                    }
+                });
+
+                if (bestAplication != null) {
+                    bestAplication.agent.SendMessage("SetWork", job.workplace);
+                    job.workplace = null;
+                }
+            });
+            jobOffers.RemoveAll((job) => job.workplace == null);
+
 			if (act[1] != 0) {
 				GameObject farm = farms[Random.Range(0, farms.Count)].gameObject;
-				if (!jobOffers.Contains(farm)) {
-					jobOffers.Enqueue(farm);
-				}
+
+                AgentJob job = new AgentJob();
+                job.name = "Farmer job";
+                job.workplace = farm;
+
+                bool newOffer = true;
+                jobOffers.ForEach((j) => {
+                    if (j.workplace == job.workplace)
+                        newOffer = false;
+                });
+
+                if (newOffer)
+				    jobOffers.Add(job);
 			}
 
 			if (act[2] != 0) {		
 				GameObject c = coalPlants[Random.Range(0, coalPlants.Count)].gameObject;
-				if (!jobOffers.Contains(c)) {				
-					jobOffers.Enqueue(c);
-				}		
+				
+                AgentJob job = new AgentJob();
+                job.name = "Factory job";
+                job.workplace = c;
+
+                bool newOffer = true;
+                jobOffers.ForEach((j) => {
+                    if (j.workplace == job.workplace)
+                        newOffer = false;
+                });
+
+                if (newOffer)
+				    jobOffers.Add(job);	
 			}
 		}
     }
@@ -152,8 +216,8 @@ public class VillageAgent : Agent {
         
         reproducitonUI.fillAmount = Mathf.Lerp(reproducitonUI.fillAmount, babyProgress / 100f, Time.deltaTime);
 
+        StringBuilder sb = new StringBuilder();        
         if (houses.Count > 0) {
-            StringBuilder sb = new StringBuilder();
             sb.Append("population: ");
             sb.Append(VillagerAgent.AgentCount.ToString());
             sb.Append("/");
@@ -162,5 +226,12 @@ public class VillageAgent : Agent {
         }
 
         Time.timeScale = timeUI.value;
+
+        sb.Clear();
+        jobOffers.ForEach(job => {
+            sb.Append(job.name);
+            sb.Append('\n');
+        });
+        jobsUI.text = sb.ToString();
     }
 }
